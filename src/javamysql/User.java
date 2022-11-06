@@ -8,7 +8,8 @@ package javamysql;
  *
  * @author 1102l
  */
-class User {
+public class User {
+    
     private int id;
     private String name,pass,quyen;
 
@@ -17,6 +18,10 @@ class User {
         this.name = name;
         this.pass = pass;
         this.quyen = quyen;
+    }
+
+    User() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getId() {

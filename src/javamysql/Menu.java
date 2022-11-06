@@ -283,6 +283,7 @@ public class Menu extends javax.swing.JFrame {
 
             ps.setString(1, name.getText());
             ps.setString(2, pass.getText());
+            
             String regis;
             regis = quyen.getSelectedItem().toString();
             ps.setString(3, regis);
