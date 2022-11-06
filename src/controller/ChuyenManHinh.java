@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 import view.ManHinhChinh;
 import view.QuanLyCanHo;
+import view.listDS;
 
 /**
  *
@@ -72,8 +73,11 @@ public class ChuyenManHinh {
                 case "QuanLyCanHo":
                     node = new QuanLyCanHo();
                     break;
+                    case "listDS":
+                        node = new listDS();
+                    break;
                 default:
-                    node = new ManHinhChinh();
+                    node = new listDS();
                     break;
             }
             root.removeAll();

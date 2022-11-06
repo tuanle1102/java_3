@@ -14,7 +14,7 @@ import java.util.List;
  * @author Admin
  */
 public class MainJFrame extends javax.swing.JFrame {
-
+       
     /**
      * Creates new form MainJFrame
      */
@@ -28,9 +28,10 @@ public class MainJFrame extends javax.swing.JFrame {
         List<DanhMucBean> listItem = new ArrayList<>();
         listItem.add(new DanhMucBean("ManHinhChinh", jpnTrangChu, jbTrangChu));
         listItem.add(new DanhMucBean("QuanLyCanHo", jpnQLCH, jlbQLCH));
-        listItem.add(new DanhMucBean("QuanLyNguoi", jpnQLNguoi, jlbQLNguoi));
+        listItem.add(new DanhMucBean("listDS", jpnQLNguoi, jlbQLNguoi));
         listItem.add(new DanhMucBean("QuanLyAccount", jpnQLAccount, jlbQLAccount));
         listItem.add(new DanhMucBean("HoaDon", jpnHoaDon, jlbHoaDon));
+        listItem.add(new DanhMucBean("listDS", jpnQLNguoi, jlbQLNguoi));
         
         controller.setEvent(listItem);
     }
@@ -147,6 +148,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jlbQLNguoi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbQLNguoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jlbQLNguoi.setText("Quan ly nguoi");
+        jlbQLNguoi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbQLNguoiMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnQLNguoiLayout = new javax.swing.GroupLayout(jpnQLNguoi);
         jpnQLNguoi.setLayout(jpnQLNguoiLayout);
@@ -164,6 +170,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jlbQLNguoi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jlbQLNguoi.getAccessibleContext().setAccessibleParent(null);
 
         jpnQLAccount.setBackground(new java.awt.Color(76, 175, 80));
 
@@ -286,6 +294,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jlbQLNguoiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbQLNguoiMouseClicked
+        
+    }//GEN-LAST:event_jlbQLNguoiMouseClicked
 
     
 
