@@ -11,18 +11,17 @@ package Danhsach;
 public class ListDanhSach {
     private int id;
     private String hoten,namsinh,sdt,gioitinh,maphong;
+    private byte [] hinh;
 
-    public ListDanhSach(int id, String hoten, String namsinh, String sdt, String gioitinh, String maphong) {
+    public ListDanhSach(int id, String hoten, String namsinh, String sdt, String gioitinh, String maphong, byte[] hinh) {
         this.id = id;
         this.hoten = hoten;
         this.namsinh = namsinh;
         this.sdt = sdt;
         this.gioitinh = gioitinh;
         this.maphong = maphong;
+        this.hinh = hinh;
     }
-
-    public ListDanhSach() {
-         }
 
     public int getId() {
         return id;
@@ -72,7 +71,14 @@ public class ListDanhSach {
         this.maphong = maphong;
     }
 
+    public byte[] getHinh() {
+        return hinh;
+    }
 
+    public void setHinh(byte[] hinh) {
+        this.hinh = hinh;
+    }
 
+   
     
 }

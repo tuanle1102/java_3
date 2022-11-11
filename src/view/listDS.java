@@ -5,6 +5,10 @@
 package view;
 
 import Danhsach.ListDanhSach;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -13,13 +17,18 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.table.TableModel;
 /**
  *
  * @author 1102l
  */
 public class listDS extends javax.swing.JPanel {
     String gender;
-    /**
+    String filename = null;
+    byte[] person_image = null;
+     /**
      * Creates new form listDS
      */
     public listDS() {
@@ -52,17 +61,34 @@ public class listDS extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1_List = new javax.swing.JTable();
+        lbl_image = new javax.swing.JLabel();
+        btnImage = new javax.swing.JButton();
 
+        setBackground(java.awt.Color.black);
+        setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.orange, 2));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.orange);
         jLabel1.setText("Họ tên");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.orange);
         jLabel2.setText("Năm sinh");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.orange);
         jLabel3.setText("Số điện thoại");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(java.awt.Color.orange);
         jLabel5.setText("Giới tính");
 
+        rdMale.setBackground(new java.awt.Color(0, 0, 0));
+        rdMale.setForeground(java.awt.Color.orange);
         rdMale.setText("Nam");
 
+        rdFemale.setBackground(new java.awt.Color(0, 0, 0));
+        rdFemale.setForeground(java.awt.Color.orange);
         rdFemale.setText("Nữ");
         rdFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,19 +96,38 @@ public class listDS extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(java.awt.Color.orange);
         jLabel4.setText("Mã phòng");
 
-        saveBtn.setText("Save");
+        saveBtn.setBackground(java.awt.Color.orange);
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        saveBtn.setText("Lưu");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Update");
+        jButton2.setBackground(java.awt.Color.orange);
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setText("Sửa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Delete");
+        jButton3.setBackground(java.awt.Color.orange);
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setText("Xóa");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
+        jTable1_List.setBackground(java.awt.Color.orange);
         jTable1_List.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -91,79 +136,107 @@ public class listDS extends javax.swing.JPanel {
                 "ID", "Họ tên", "Năm sinh", "Số điện thoại", "Giới tính", "Mã phòng"
             }
         ));
+        jTable1_List.setColumnSelectionAllowed(true);
+        jTable1_List.setSelectionBackground(java.awt.Color.orange);
+        jTable1_List.setSelectionForeground(java.awt.Color.orange);
+        jTable1_List.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1_ListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1_List);
+        jTable1_List.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        btnImage.setText("Choose");
+        btnImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 699, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(saveBtn))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rdMale)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rdFemale))
-                                    .addComponent(txtHoten)
-                                    .addComponent(txtSdt, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(txtNamsinh)
-                                    .addComponent(txtMaPhong))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButton3)))
-                            .addGap(419, 419, 419))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addGap(10, 10, 10)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(saveBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(143, 143, 143)
+                        .addComponent(btnImage))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rdMale)
+                                .addGap(18, 18, 18)
+                                .addComponent(rdFemale))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtHoten, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNamsinh, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtSdt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
+                        .addGap(133, 133, 133)
+                        .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(177, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 493, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(8, 8, 8)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtHoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(rdMale)
-                        .addComponent(rdFemale))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(saveBtn)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(8, 8, 8)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtHoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(rdMale)
+                            .addComponent(rdFemale))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(saveBtn)
+                    .addComponent(btnImage))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,9 +248,13 @@ public class listDS extends javax.swing.JPanel {
 
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/account", "root", "123456");
-            String query = "INSERT INTO listds(hoten,namsinh,sdt,gioitinh,maphong)value(?,?,?,?,?)";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "sa";
+            String password = "sa";
+            
+            Connection con = DriverManager.getConnection(url,username,password);
+            String query = "INSERT INTO listds(hoten,namsinh,sdt,gioitinh,maphong,hinh)VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, txtHoten.getText());
             ps.setString(2, txtNamsinh.getText());
@@ -189,6 +266,7 @@ public class listDS extends javax.swing.JPanel {
             }
             ps.setString(4, gender);
             ps.setString(5, txtMaPhong.getText());
+           ps.setBytes(6, person_image);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Insert Successfully");
             DefaultTableModel model = (DefaultTableModel) jTable1_List.getModel();
@@ -204,16 +282,19 @@ public class listDS extends javax.swing.JPanel {
         ArrayList<ListDanhSach> userList = new ArrayList<>();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/account", "root", "123456");
-
-            String query1 = "SELECT * FROM account.listds;";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "sa";
+            String password = "sa";
+            
+            Connection con = DriverManager.getConnection(url,username,password);
+            String query1 = "SELECT * FROM listds;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
             ListDanhSach lids;
             while (rs.next()) {
 
-                lids = new ListDanhSach(rs.getInt("id"), rs.getString("hoten"), rs.getString("namsinh"), rs.getString("sdt"), rs.getString("gioitinh"), rs.getString("maphong"));
+                lids = new ListDanhSach(rs.getInt("id"), rs.getString("hoten"), rs.getString("namsinh"), rs.getString("sdt"), rs.getString("gioitinh"), rs.getString("maphong"),rs.getBytes("hinh"));
                 userList.add(lids);
 
             }
@@ -225,7 +306,7 @@ public class listDS extends javax.swing.JPanel {
         }
 
         public void show_user() {
-            ArrayList<ListDanhSach> list = userList();
+        ArrayList<ListDanhSach> list = userList();
         DefaultTableModel model = (DefaultTableModel) jTable1_List.getModel();
         Object[] row = new Object[6];
         for (int i = 0; i < list.size(); i++) {
@@ -235,13 +316,120 @@ public class listDS extends javax.swing.JPanel {
             row[3] = list.get(i).getSdt();
             row[4] = list.get(i).getGioitinh();
             row[5] = list.get(i).getMaphong();
+            
             model.addRow(row);
             }
 
     }//GEN-LAST:event_saveBtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       try {
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "sa";
+            String password = "sa";
+            
+            Connection con = DriverManager.getConnection(url,username,password);
+            int row = jTable1_List.getSelectedRow();
+            String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
+            String query = "Update listds SET hoten = ? , namsinh = ? , sdt = ? , gioitinh = ? , maphong = ? ,hinh = ? where id =" + value;
+            PreparedStatement ps = con.prepareStatement(query);
+
+           ps.setString(1, txtHoten.getText());
+            ps.setString(2, txtNamsinh.getText());
+            ps.setString(3, txtSdt.getText());
+            if (rdMale.isSelected()) {
+                gender = "Nam";
+            } else {
+                gender = "Nu";
+            }
+            ps.setString(4, gender);
+            ps.setString(5, txtMaPhong.getText());
+            ps.setBytes(6, person_image);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update Successfully");
+            DefaultTableModel model = (DefaultTableModel)jTable1_List.getModel();
+            model.setRowCount(0);
+            show_user();
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int opt = JOptionPane.showConfirmDialog(null, "Bạn đã chắc chắn xóa ?","Delete",JOptionPane.YES_NO_OPTION);
+        if(opt ==0){
+        
+        try {
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "sa";
+            String password = "sa";
+            
+            Connection con = DriverManager.getConnection(url,username,password);
+            int row = jTable1_List.getSelectedRow();
+            String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
+            String query = "Delete From listds where id =" + value;
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Delete Successfully");
+            DefaultTableModel model = (DefaultTableModel)jTable1_List.getModel();
+            model.setRowCount(0);
+            show_user();
+
+        } catch (Exception e) {
+            
+        }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable1_ListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1_ListMouseClicked
+        int i = jTable1_List.getSelectedRow();
+        TableModel model = jTable1_List.getModel();
+        txtHoten.setText(model.getValueAt(i, 1).toString());
+        txtNamsinh.setText(model.getValueAt(i, 2).toString());
+        txtSdt.setText(model.getValueAt(i,3).toString());
+        gender = model.getValueAt(i, 4).toString();
+        if (gender.equals("Female")) {
+                rdFemale.setSelected(true);
+            } else {
+                rdMale.setSelected(true);
+            }
+        txtMaPhong.setText(model.getValueAt(i, 5).toString());
+        byte[] img = (userList().get(i).getHinh());
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(lbl_image.getWidth() ,lbl_image.getHeight(), Image.SCALE_SMOOTH));
+        lbl_image.setIcon(imageIcon);
+    }//GEN-LAST:event_jTable1_ListMouseClicked
+
+    private void btnImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImageActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        filename = f.getAbsolutePath();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(lbl_image.getWidth() ,lbl_image.getHeight(), Image.SCALE_SMOOTH));
+        lbl_image.setIcon(imageIcon);
+        try {
+            File image = new File(filename);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for(int readNum;(readNum=fis.read(buf))!=-1;){
+            bos.write(buf,0,readNum);
+            
+            }
+            person_image=bos.toByteArray();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_btnImageActionPerformed
+
+ 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnImage;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -251,6 +439,7 @@ public class listDS extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1_List;
+    private javax.swing.JLabel lbl_image;
     private javax.swing.JRadioButton rdFemale;
     private javax.swing.JRadioButton rdMale;
     private javax.swing.JButton saveBtn;

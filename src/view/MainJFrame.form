@@ -59,14 +59,13 @@
         <Container class="javax.swing.JPanel" name="jpnMenu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="51" green="53" red="52" type="rgb"/>
+              <Color blue="33" green="cc" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -77,6 +76,10 @@
                           <Component id="jpnHoaDon" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -94,7 +97,7 @@
                       <Component id="jpnQLAccount" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jpnHoaDon" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="113" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -103,7 +106,7 @@
             <Container class="javax.swing.JPanel" name="jPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -112,7 +115,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" pref="291" max="32767" attributes="0"/>
+                          <Component id="jLabel1" pref="220" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -131,13 +134,13 @@
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="1"/>
+                      <Font name="Times New Roman" size="26" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="0" green="c8" id="orange" palette="1" red="ff" type="palette"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="QUAN LY CHUNG CU"/>
+                    <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; chung cu"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -182,7 +185,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/desktop_mac_FILL0_wght400_GRAD0_opsz48.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Man hinh chinh"/>
+                    <Property name="text" type="java.lang.String" value="Trang ch&#x1ee7;"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -227,7 +230,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/home_FILL0_wght400_GRAD0_opsz48.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Quan ly can ho"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -272,13 +274,8 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/person_FILL0_wght400_GRAD0_opsz48.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Quan ly nguoi"/>
+                    <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin ng&#x1b0;&#x1edd;i d&#xf9;ng"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="null"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jlbQLNguoiMouseClicked"/>
                   </Events>
@@ -325,7 +322,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/account_circle_FILL0_wght400_GRAD0_opsz48.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Quan ly account"/>
+                    <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -370,7 +367,7 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/receipt_long_FILL0_wght400_GRAD0_opsz48.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Hoa don"/>
+                    <Property name="text" type="java.lang.String" value="H&#xf3;a &#x111;&#x1a1;n"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -382,7 +379,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="922" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="979" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

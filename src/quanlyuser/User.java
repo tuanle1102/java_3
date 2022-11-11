@@ -20,8 +20,7 @@ public class User {
         this.quyen = quyen;
     }
 
-    User() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public User() {
     }
 
     public int getId() {
@@ -55,6 +54,10 @@ public class User {
     public void setQuyen(String quyen) {
         this.quyen = quyen;
     }
+    
 
+    
+
+    
     
 }

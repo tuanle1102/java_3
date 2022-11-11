@@ -30,8 +30,8 @@ public class LoginForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JPasswordField();
+        username1 = new javax.swing.JTextField();
+        password1 = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -95,8 +95,8 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(password)
-                        .addComponent(username)
+                        .addComponent(password1)
+                        .addComponent(username1)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(quyen, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(83, 83, 83))
@@ -108,10 +108,10 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(username1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(quyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
@@ -142,12 +142,16 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/account", "root", "123456");
-            String sql = "SELECT * FROM user where name = ? and pass = ? and quyen = ?";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "sa";
+            String password = "sa";
+            
+            Connection con = DriverManager.getConnection(url,username,password);
+            String sql = "SELECT * FROM users where name = ? and pass = ? and quyen = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, username.getText());
-            pst.setString(2, password.getText());
+            pst.setString(1, username1.getText());
+            pst.setString(2, password1.getText());
             pst.setString(3, String.valueOf(quyen.getSelectedItem()));
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
@@ -155,8 +159,8 @@ public class LoginForm extends javax.swing.JFrame {
                         + "Vai trò :  " + rs.getString("quyen"));
 
                 if (quyen.getSelectedIndex() == 0) {
-                    Menu mn = new Menu();
-                    mn.setVisible(true);
+                    MainJFrame mnf = new MainJFrame();
+                    mnf.setVisible(true);
                     setVisible(false);
 
                 } else if(quyen.getSelectedIndex() == 1){
@@ -166,8 +170,8 @@ public class LoginForm extends javax.swing.JFrame {
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Sai thông tin tài khoản mật khẩu hoặc vai trò !!");
-                username.setText("");
-                password.setText("");
+                username1.setText("");
+                password1.setText("");
             }
             con.close();
 
@@ -219,8 +223,8 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField password1;
     private javax.swing.JComboBox<String> quyen;
-    private javax.swing.JTextField username;
+    private javax.swing.JTextField username1;
     // End of variables declaration//GEN-END:variables
 }

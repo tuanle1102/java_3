@@ -12,11 +12,9 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
-import view.HoaDon;
 import view.ManHinhChinh;
 import view.QuanLyCanHo;
 import view.listDS;
-
 /**
  *
  * @author Admin
@@ -25,7 +23,7 @@ public class ChuyenManHinh {
 
     private JPanel root;
     private String kindSelected = "";
-
+    
     private List<DanhMucBean> listItem = null;
 
     public ChuyenManHinh(JPanel root) {
@@ -74,10 +72,10 @@ public class ChuyenManHinh {
                 case "QuanLyCanHo":
                     node = new QuanLyCanHo();
                     break;
-                case "HoaDon":
-                    node = new HoaDon();
+                case "Menu":
+                    node = new view.Menu();
                     break;
-                case "listDS":
+                case "listds":
                     node = new listDS();
                     break;
                 default:
@@ -126,13 +124,13 @@ public class ChuyenManHinh {
         }
 
     }
-
-    private void setChangeBackground(String kind) {
+    
+    private void setChangeBackground(String kind){
         for (DanhMucBean item : listItem) {
-            if (item.getKind().equalsIgnoreCase(kind)) {
+            if(item.getKind().equalsIgnoreCase(kind)){
                 item.getJpn().setBackground(new Color(96, 100, 191));
                 item.getJlb().setBackground(new Color(96, 100, 191));
-            } else {
+            }else{
                 item.getJpn().setBackground(new Color(76, 175, 80));
                 item.getJlb().setBackground(new Color(76, 175, 80));
             }
