@@ -248,10 +248,10 @@ public class listDS extends javax.swing.JPanel {
 
         try {
 
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+                String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "sa";
-            String password = "sa";
+            String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
             String query = "INSERT INTO listds(hoten,namsinh,sdt,gioitinh,maphong,hinh)VALUES(?,?,?,?,?,?)";
@@ -282,10 +282,10 @@ public class listDS extends javax.swing.JPanel {
         ArrayList<ListDanhSach> userList = new ArrayList<>();
 
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "sa";
-            String password = "sa";
+            String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
             String query1 = "SELECT * FROM listds;";
@@ -324,10 +324,10 @@ public class listDS extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "sa";
-            String password = "sa";
+            String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_List.getSelectedRow();
@@ -361,10 +361,10 @@ public class listDS extends javax.swing.JPanel {
         if(opt ==0){
         
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "sa";
-            String password = "sa";
+            String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_List.getSelectedRow();

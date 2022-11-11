@@ -29,7 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
         listItem.add(new DanhMucBean("ManHinhChinh", jpnTrangChu, jbTrangChu));
         listItem.add(new DanhMucBean("QuanLyCanHo", jpnQLCH, jlbQLCH));
         listItem.add(new DanhMucBean("listDS", jpnQLNguoi, jlbQLNguoi));
-        listItem.add(new DanhMucBean("Menu", jpnMenu, jlbQLAccount));
+        listItem.add(new DanhMucBean("Menu", jpnQLAccount, jlbQLAccount));
         listItem.add(new DanhMucBean("HoaDon", jpnHoaDon, jlbHoaDon));
         listItem.add(new DanhMucBean("listDS", jpnQLNguoi, jlbQLNguoi));
         
@@ -65,7 +65,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jpnRoot.setName(""); // NOI18N
 
-        jpnMenu.setBackground(new java.awt.Color(255, 204, 51));
+        jpnMenu.setBackground(new java.awt.Color(255, 255, 0));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -80,7 +80,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -233,9 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jpnQLAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpnHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jpnMenuLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jpnMenuLayout.setVerticalGroup(
             jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

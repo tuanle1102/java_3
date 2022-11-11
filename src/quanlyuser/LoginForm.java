@@ -142,10 +142,10 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "sa";
-            String password = "sa";
+            String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
             String sql = "SELECT * FROM users where name = ? and pass = ? and quyen = ?";
