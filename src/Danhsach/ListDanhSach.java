@@ -77,8 +77,6 @@ public class ListDanhSach {
 
     public void setHinh(byte[] hinh) {
         this.hinh = hinh;
-    }
-
-   
+    }  
     
 }

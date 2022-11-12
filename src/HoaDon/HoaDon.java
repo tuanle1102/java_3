@@ -11,6 +11,7 @@ import java.util.Date;
  * @author ASUS
  */
 public class HoaDon {
+    private int stt;
     private String maHD;
     private String hotenchuho;
     private String canho;
@@ -20,12 +21,21 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(String maHD, String hotenchuho, String canho, Date time, String trangthai) {
+    public HoaDon(int stt, String maHD, String hotenchuho, String canho, Date time, String trangthai) {
+        this.stt = stt;
         this.maHD = maHD;
         this.hotenchuho = hotenchuho;
         this.canho = canho;
         this.time = time;
         this.trangthai = trangthai;
+    }
+
+    public int getStt() {
+        return stt;
+    }
+
+    public void setStt(int stt) {
+        this.stt = stt;
     }
 
     public String getMaHD() {
@@ -67,11 +77,8 @@ public class HoaDon {
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
     }
-
-    @Override
-    public String toString() {
-        return "HoaDon{" + "maHD=" + maHD + ", hotenchuho=" + hotenchuho + ", canho=" + canho + ", time=" + time + ", trangthai=" + trangthai + '}';
-    }
     
     
+    
+     
 }

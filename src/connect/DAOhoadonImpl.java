@@ -49,7 +49,7 @@ public class DAOhoadonImpl implements DAOhoadon {
     public int createOrUpdate(HoaDon hoadon) {
         try {
             Connection cons = DBconnect.getConnection();
-            String sql = "INSERT INTO HoaDon(maHD, hotenchuho, canho, time, trangthai) VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO HoaDon(maHD, hotenchuho, canho, time, trangthai) VALUES(?, ?, ?, ?, ?)ON DUPLICATE KEY UPDATE hotenchuho = VALUES(hotenchuho)";
             PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, hoadon.getMaHD());
             ps.setString(2, hoadon.getHotenchuho());

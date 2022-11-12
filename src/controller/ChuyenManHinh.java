@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
-import view.HoaDon;
+import view.HoaDonJPN;
 import view.ManHinhChinh;
 import view.QuanLyCanHo;
 import view.listDS;
@@ -80,7 +80,7 @@ public class ChuyenManHinh {
                     node = new listDS();
                     break;
                 case "HoaDon":
-                    node = new HoaDon();
+                    node = new HoaDonJPN();
                     break;
                 default:
                     node = new listDS();

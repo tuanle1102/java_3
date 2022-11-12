@@ -52,6 +52,7 @@ GO
 
 CREATE TABLE HoaDon
 (
+	[stt] [int] IDENTITY(1,1) NOT NULL,
 	maHD  NVARCHAR(100),
 	hotenchuho NVARCHAR(100) NOT NULL,
 	canho NVARCHAR(100) NOT NULL,
