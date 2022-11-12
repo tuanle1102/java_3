@@ -6,8 +6,12 @@ package controller;
 
 import HoaDon.HoaDon;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -23,6 +27,7 @@ import javax.swing.table.TableRowSorter;
 import service.HoaDonService;
 import service.HoaDonServiceImpl;
 import utility.ClassTableModel;
+import view.addHoaDon;
 
 /**
  *
@@ -86,6 +91,30 @@ public class HoaDonController {
         table.getColumnModel().getColumn(0).setMinWidth(80);
         table.getColumnModel().getColumn(0).setMaxWidth(80);
         table.getColumnModel().getColumn(0).setPreferredWidth(80);
+        
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount() == 2 && table.getSelectedRow() !=-1){
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    int selectedRowIndex = table.getSelectedRow();
+                    selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);           
+                    
+                    HoaDon hoadon = new HoaDon();
+                    hoadon.setMaHD(model.getValueAt(selectedRowIndex, 1).toString());
+                    hoadon.setHotenchuho(model.getValueAt(selectedRowIndex, 2).toString());
+                    hoadon.setCanho(model.getValueAt(selectedRowIndex, 3).toString());
+                    hoadon.setTime((Date) model.getValueAt(selectedRowIndex, 4));
+                    hoadon.setTrangthai(model.getValueAt(selectedRowIndex, 5).toString());
+                                        
+                    addHoaDon frame = new addHoaDon(hoadon);
+                    frame.setTitle("Thông tin hóa đơn");
+                    frame.setResizable(false);
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                }
+            }         
+        });
 
         table.getTableHeader().setFont(new Font("Arrial", Font.BOLD, 14));
         table.getTableHeader().setPreferredSize(new Dimension(100, 50));
@@ -102,5 +131,28 @@ public class HoaDonController {
         jpnView.add(scrollPane);
         jpnView.validate();
         jpnView.repaint();
+    }
+    
+    public void setEvent(){
+        btnAdd.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                addHoaDon frame=new addHoaDon(new HoaDon());
+                frame.setTitle("Thêm hóa đơn");
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+                frame.setVisible(true);            
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+               btnAdd.setBackground(new Color(0, 200, 83));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+               btnAdd.setBackground(new Color(100, 221, 23));
+            }
+        });
     }
 }

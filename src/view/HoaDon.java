@@ -19,6 +19,7 @@ public class HoaDon extends javax.swing.JPanel {
         initComponents();
         HoaDonController controller = new HoaDonController(jpnView, btnAdd, jtfSearch);
         controller.setDateToTable();
+        controller.setEvent();
     }
 
     /**
@@ -37,12 +38,13 @@ public class HoaDon extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAdd.setBackground(new java.awt.Color(0, 255, 51));
+        btnAdd.setBackground(new java.awt.Color(0, 200, 83));
         btnAdd.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnAdd.setText("+Thêm hóa đơn");
         btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jtfSearch.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtfSearch.setToolTipText("Tìm Kiếm");
 
         jpnView.setBackground(new java.awt.Color(51, 255, 51));
 

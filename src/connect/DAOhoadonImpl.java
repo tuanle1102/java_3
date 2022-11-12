@@ -7,6 +7,7 @@ package connect;
 import HoaDon.HoaDon;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,7 @@ import java.sql.ResultSet;
  *
  * @author ASUS
  */
-public class DAOhoadonImpl implements DAOhoadon{
+public class DAOhoadonImpl implements DAOhoadon {
 
     @Override
     public List<HoaDon> getList() {
@@ -25,8 +26,8 @@ public class DAOhoadonImpl implements DAOhoadon{
             List<HoaDon> list = new ArrayList<>();
             PreparedStatement ps = cons.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {                
-                HoaDon hoadon =  new HoaDon();
+            while (rs.next()) {
+                HoaDon hoadon = new HoaDon();
                 hoadon.setMaHD(rs.getString("maHD"));
                 hoadon.setHotenchuho(rs.getString("hotenchuho"));
                 hoadon.setCanho(rs.getString("canho"));
@@ -35,7 +36,7 @@ public class DAOhoadonImpl implements DAOhoadon{
                 list.add(hoadon);
             }
             ps.close();
-            rs.close();
+            //rs.close();
             cons.close();
             return list;
         } catch (Exception e) {
@@ -43,6 +44,33 @@ public class DAOhoadonImpl implements DAOhoadon{
         }
         return null;
     }
+
+    @Override
+    public int createOrUpdate(HoaDon hoadon) {
+        try {
+            Connection cons = DBconnect.getConnection();
+            String sql = "INSERT INTO HoaDon(maHD, hotenchuho, canho, time, trangthai) VALUES(?, ?, ?, ?, ?)";
+            PreparedStatement ps = cons.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, hoadon.getMaHD());
+            ps.setString(2, hoadon.getHotenchuho());
+            ps.setString(3, hoadon.getCanho());
+            ps.setDate(4, new Date(hoadon.getTime().getTime()));
+            ps.setString(5, hoadon.getTrangthai());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+            ps.close();
+            cons.close();
+            return generatedKey;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         DAOhoadon hoadon = new DAOhoadonImpl();
         System.out.println(hoadon.getList());

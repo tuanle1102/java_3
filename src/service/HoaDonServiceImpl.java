@@ -25,5 +25,10 @@ public class HoaDonServiceImpl implements HoaDonService{
     public List<HoaDon> getList() {
         return daohoadon.getList();
     }
+
+    @Override
+    public int createOrUpdate(HoaDon hoadon) {
+        return daohoadon.createOrUpdate(hoadon);
+    }
     
 }
