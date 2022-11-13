@@ -144,7 +144,7 @@ public class LoginForm extends javax.swing.JFrame {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);

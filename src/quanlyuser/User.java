@@ -53,5 +53,11 @@ public class User {
 
     public void setQuyen(String quyen) {
         this.quyen = quyen;
-    }      
+    }
+    
+
+    
+
+    
+    
 }

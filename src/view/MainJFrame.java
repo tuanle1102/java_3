@@ -21,6 +21,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         setTitle("QUAN LY CHUNG CU");
+        this.setLocationRelativeTo(null);
         
         ChuyenManHinh controller = new ChuyenManHinh(jpnView);
         controller.setView(jpnTrangChu, jbTrangChu);
@@ -65,14 +66,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jpnRoot.setName(""); // NOI18N
 
-        jpnMenu.setBackground(new java.awt.Color(255, 255, 0));
+        jpnMenu.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
         jLabel1.setForeground(java.awt.Color.orange);
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Quản lí chung cu");
+        jLabel1.setText("QUẢN LÝ CHUNG CƯ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -91,11 +92,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jpnTrangChu.setBackground(new java.awt.Color(76, 175, 80));
+        jpnTrangChu.setBackground(new java.awt.Color(153, 0, 0));
 
+        jbTrangChu.setBackground(new java.awt.Color(0, 0, 0));
         jbTrangChu.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jbTrangChu.setForeground(new java.awt.Color(255, 255, 255));
-        jbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jbTrangChu.setForeground(java.awt.Color.orange);
+        jbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/desktop_mac_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jbTrangChu.setText("Trang chủ");
 
@@ -116,12 +118,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(6, 6, 6))
         );
 
-        jpnQLCH.setBackground(new java.awt.Color(76, 175, 80));
+        jpnQLCH.setBackground(new java.awt.Color(153, 0, 0));
 
+        jlbQLCH.setBackground(new java.awt.Color(0, 0, 0));
         jlbQLCH.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbQLCH.setForeground(new java.awt.Color(255, 255, 255));
-        jlbQLCH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbQLCH.setForeground(java.awt.Color.orange);
+        jlbQLCH.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbQLCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        jlbQLCH.setText("Căn hộ");
 
         javax.swing.GroupLayout jpnQLCHLayout = new javax.swing.GroupLayout(jpnQLCH);
         jpnQLCH.setLayout(jpnQLCHLayout);
@@ -140,11 +144,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnQLNguoi.setBackground(new java.awt.Color(76, 175, 80));
+        jpnQLNguoi.setBackground(new java.awt.Color(153, 0, 0));
 
+        jlbQLNguoi.setBackground(new java.awt.Color(0, 0, 0));
         jlbQLNguoi.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbQLNguoi.setForeground(new java.awt.Color(255, 255, 255));
-        jlbQLNguoi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbQLNguoi.setForeground(java.awt.Color.orange);
+        jlbQLNguoi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbQLNguoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jlbQLNguoi.setText("Thông tin người dùng");
         jlbQLNguoi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,11 +175,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnQLAccount.setBackground(new java.awt.Color(76, 175, 80));
+        jpnQLAccount.setBackground(new java.awt.Color(153, 0, 0));
 
+        jlbQLAccount.setBackground(new java.awt.Color(0, 0, 0));
         jlbQLAccount.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbQLAccount.setForeground(new java.awt.Color(255, 255, 255));
-        jlbQLAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbQLAccount.setForeground(java.awt.Color.orange);
+        jlbQLAccount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbQLAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/account_circle_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jlbQLAccount.setText("Tài khoản");
 
@@ -195,11 +201,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpnHoaDon.setBackground(new java.awt.Color(76, 175, 80));
+        jpnHoaDon.setBackground(new java.awt.Color(153, 0, 0));
 
+        jlbHoaDon.setBackground(new java.awt.Color(0, 0, 0));
         jlbHoaDon.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbHoaDon.setForeground(new java.awt.Color(255, 255, 255));
-        jlbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbHoaDon.setForeground(java.awt.Color.orange);
+        jlbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/receipt_long_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jlbHoaDon.setText("Hóa đơn");
 
@@ -256,7 +263,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jpnView.setLayout(jpnViewLayout);
         jpnViewLayout.setHorizontalGroup(
             jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 979, Short.MAX_VALUE)
+            .addGap(0, 946, Short.MAX_VALUE)
         );
         jpnViewLayout.setVerticalGroup(
             jpnViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

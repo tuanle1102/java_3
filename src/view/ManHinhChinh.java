@@ -45,19 +45,17 @@ public class ManHinhChinh extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel2.setBackground(new java.awt.Color(153, 0, 0));
 
-        lblcanho.setBackground(new java.awt.Color(204, 0, 51));
+        lblcanho.setBackground(new java.awt.Color(0, 0, 0));
         lblcanho.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblcanho.setForeground(new java.awt.Color(255, 0, 153));
+        lblcanho.setForeground(java.awt.Color.orange);
         lblcanho.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblcanho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/house_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         lblcanho.setText("Tổng số phòng");
-        lblcanho.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.orange, 5));
         lblcanho.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 lblcanhoMouseMoved(evt);
@@ -85,16 +83,15 @@ public class ManHinhChinh extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblcanho, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblcanho, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel5.setBackground(new java.awt.Color(153, 0, 0));
 
-        lbluser.setBackground(new java.awt.Color(102, 255, 102));
+        lbluser.setBackground(java.awt.Color.orange);
         lbluser.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbluser.setForeground(new java.awt.Color(255, 255, 255));
+        lbluser.setForeground(java.awt.Color.orange);
         lbluser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbluser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         lbluser.setText("Tổng số người dùng");
@@ -111,62 +108,51 @@ public class ManHinhChinh extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbluser, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lbluser, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbluser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(lbluser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 51));
+        jPanel6.setBackground(new java.awt.Color(153, 0, 0));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setForeground(java.awt.Color.orange);
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/receipt_long_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jLabel14.setText("Đã thanh toán");
+        jLabel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel14MouseMoved(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/house_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
-        jLabel13.setMaximumSize(new java.awt.Dimension(100, 100));
-        jLabel13.setMinimumSize(new java.awt.Dimension(100, 100));
-        jLabel13.setPreferredSize(new java.awt.Dimension(100, 100));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addGap(112, 112, 112)
                         .addComponent(jLabel15))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -176,21 +162,20 @@ public class ManHinhChinh extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(165, 165, 165))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -207,10 +192,10 @@ public class ManHinhChinh extends javax.swing.JPanel {
     }//GEN-LAST:event_lblcanhoInputMethodTextChanged
 
     private void lblcanhoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcanhoMouseMoved
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
-            String password = "sa";
+            String username = "saa";
+            String password = "12345";
             
             try {
             Connection con = DriverManager.getConnection(url,username,password);
@@ -221,7 +206,7 @@ public class ManHinhChinh extends javax.swing.JPanel {
                 while (rs.next()) {
                     int count = rs.getInt("sophong");
                     lblcanho.setText(String.valueOf("Tổng số phòng là: " +count));
-                    return ;
+                  
                 }
                             
         } catch (Exception e) {
@@ -231,10 +216,10 @@ public class ManHinhChinh extends javax.swing.JPanel {
     }//GEN-LAST:event_lblcanhoMouseMoved
 
     private void lbluserMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbluserMouseMoved
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=account;"
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
-            String password = "sa";
+            String username = "saa";
+            String password = "12345";
             
             try {
             Connection con = DriverManager.getConnection(url,username,password);
@@ -246,7 +231,7 @@ public class ManHinhChinh extends javax.swing.JPanel {
                     int count = rs.getInt("sophong");
                     lbluser.setText(String.valueOf("Tổng số người dùng là: "
                             + " " + count));
-                    return ;
+               
                 }
                             
         } catch (Exception e) {
@@ -254,11 +239,34 @@ public class ManHinhChinh extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_lbluserMouseMoved
 
+    private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
+                    + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
+            String username = "saa";
+            String password = "12345";
+            
+            try {
+            Connection con = DriverManager.getConnection(url,username,password);
+            String rtn = null;
+             String query1 ="select count(*) as chuathanhtoan from HoaDon where trangthai = N'Chưa thanh toán';";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(query1);
+                while (rs.next()) {
+                    int count = rs.getInt("chuathanhtoan");
+                    jLabel14.setText(String.valueOf("Chưa thanh toán là: "
+                            + " " + count)); 
+                    
+                }
+                            
+        } catch (Exception e) {
+                //JOptionPane.showMessageDialog(null, "Không có phong nào được thue");
+        }
+    }//GEN-LAST:event_jLabel14MouseMoved
+
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel2;
