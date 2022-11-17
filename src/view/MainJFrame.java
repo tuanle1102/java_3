@@ -8,6 +8,7 @@ import bean.DanhMucBean;
 import controller.ChuyenManHinh;
 import java.util.ArrayList;
 import java.util.List;
+import quanlyuser.LoginForm;
 
 /**
  *
@@ -22,6 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         setTitle("QUAN LY CHUNG CU");
         this.setLocationRelativeTo(null);
+       
         
         ChuyenManHinh controller = new ChuyenManHinh(jpnView);
         controller.setView(jpnTrangChu, jbTrangChu);
@@ -303,7 +305,6 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jlbQLNguoiMouseClicked
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -322,4 +323,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpnTrangChu;
     private javax.swing.JPanel jpnView;
     // End of variables declaration//GEN-END:variables
+
+  
 }

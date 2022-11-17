@@ -339,12 +339,10 @@ public class Menu extends javax.swing.JPanel {
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_Display_User.getSelectedRow();
             String value = (jTable1_Display_User.getModel().getValueAt(row, 0).toString());
-            String query = "Update user SET name = ? , pass = ? , quyen = ? where id =" + value;
+            String query = "Update users SET name = ? , pass = ? , quyen = ? where id =" + value;
             PreparedStatement ps = con.prepareStatement(query);
-
             ps.setString(1, name.getText());
             ps.setString(2, pass.getText());
-
             String regis;
             regis = quyen.getSelectedItem().toString();
             ps.setString(3, regis);
@@ -364,14 +362,12 @@ public class Menu extends javax.swing.JPanel {
             + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "saa";
             String password = "12345";
-
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_Display_User.getSelectedRow();
             String value = (jTable1_Display_User.getModel().getValueAt(row, 0).toString());
-            String query = "Delete From user where id =" + value;
+            String query = "Delete From users where id = " + value;
             PreparedStatement ps = con.prepareStatement(query);
             ps.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Delete Successfully");
             DefaultTableModel model = (DefaultTableModel)jTable1_Display_User.getModel();
             model.setRowCount(0);
@@ -399,7 +395,6 @@ public class Menu extends javax.swing.JPanel {
 
     private void jtfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSearchKeyReleased
         String query =jtfSearch.getText().toLowerCase();
-        
         seach(query);
     }//GEN-LAST:event_jtfSearchKeyReleased
     
