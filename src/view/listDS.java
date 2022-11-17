@@ -19,7 +19,9 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author 1102l
@@ -28,6 +30,7 @@ public class listDS extends javax.swing.JPanel {
     String gender;
     String filename = null;
     byte[] person_image = null;
+    DefaultTableModel dm;
      /**
      * Creates new form listDS
      */
@@ -68,6 +71,7 @@ public class listDS extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btnImage = new javax.swing.JButton();
+        jtfSearch = new javax.swing.JTextField();
 
         setBackground(java.awt.Color.black);
 
@@ -219,6 +223,13 @@ public class listDS extends javax.swing.JPanel {
             }
         });
 
+        jtfSearch.setToolTipText("Tìm kiếm");
+        jtfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfSearchKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -258,9 +269,10 @@ public class listDS extends javax.swing.JPanel {
                                 .addGap(61, 61, 61)
                                 .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
+                                .addGap(94, 94, 94)
                                 .addComponent(btnImage)))
-                        .addGap(0, 203, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -298,13 +310,11 @@ public class listDS extends javax.swing.JPanel {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnImage, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbl_image, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -340,7 +350,7 @@ public class listDS extends javax.swing.JPanel {
 
                 String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
@@ -374,7 +384,7 @@ public class listDS extends javax.swing.JPanel {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
@@ -416,7 +426,7 @@ public class listDS extends javax.swing.JPanel {
        try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
@@ -453,7 +463,7 @@ public class listDS extends javax.swing.JPanel {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
@@ -510,10 +520,22 @@ public class listDS extends javax.swing.JPanel {
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }
-        
+        }       
     }//GEN-LAST:event_btnImageActionPerformed
 
+    private void jtfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSearchKeyReleased
+        String query =jtfSearch.getText().toLowerCase();
+        
+        seach(query);
+    }//GEN-LAST:event_jtfSearchKeyReleased
+    private void seach(String query)
+    {
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
+        dm =(DefaultTableModel) jTable1_List.getModel();
+        jTable1_List.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
  
     
 
@@ -533,6 +555,7 @@ public class listDS extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1_List;
+    private javax.swing.JTextField jtfSearch;
     private javax.swing.JLabel lbl_image;
     private javax.swing.JRadioButton rdFemale;
     private javax.swing.JRadioButton rdMale;

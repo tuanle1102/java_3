@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import jdk.jfr.FlightRecorder;
 import quanlyuser.User;
 /**
@@ -19,7 +21,7 @@ import quanlyuser.User;
  * @author LHUser
  */
 public class Menu extends javax.swing.JPanel {
-
+    DefaultTableModel dm;
     /**
      * Creates new form Menu
      */
@@ -34,7 +36,7 @@ public class Menu extends javax.swing.JPanel {
            
              String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
@@ -92,6 +94,7 @@ public class Menu extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jtfSearch = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -213,6 +216,13 @@ public class Menu extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Thêm người dùng");
 
+        jtfSearch.setToolTipText("Tìm kiếm");
+        jtfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfSearchKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -221,7 +231,7 @@ public class Menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -235,18 +245,21 @@ public class Menu extends javax.swing.JPanel {
                                 .addGap(76, 76, 76)
                                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(pass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(quyen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(70, 70, 70)))))
+                                .addGap(70, 70, 70))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jtfSearch)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(62, 62, 62)))))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -273,7 +286,9 @@ public class Menu extends javax.swing.JPanel {
                     .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(316, 316, 316))
+                .addGap(36, 36, 36)
+                .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(250, 250, 250))
             .addComponent(jScrollPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -290,7 +305,7 @@ public class Menu extends javax.swing.JPanel {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
             + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
 
             Connection con = DriverManager.getConnection(url,username,password);
@@ -315,7 +330,7 @@ public class Menu extends javax.swing.JPanel {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
             + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_Display_User.getSelectedRow();
@@ -343,7 +358,7 @@ public class Menu extends javax.swing.JPanel {
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
             + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
-            String username = "sa";
+            String username = "saa";
             String password = "12345";
 
             Connection con = DriverManager.getConnection(url,username,password);
@@ -378,6 +393,20 @@ public class Menu extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTable1_Display_UserMouseClicked
 
+    private void jtfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSearchKeyReleased
+        String query =jtfSearch.getText().toLowerCase();
+        
+        seach(query);
+    }//GEN-LAST:event_jtfSearchKeyReleased
+    
+    private void seach(String query)
+    {
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
+        dm =(DefaultTableModel) jTable1_Display_User.getModel();
+        jTable1_Display_User.setRowSorter(tr);
+        
+        tr.setRowFilter(RowFilter.regexFilter(query));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnupdate;
@@ -391,6 +420,7 @@ public class Menu extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1_Display_User;
+    private javax.swing.JTextField jtfSearch;
     private javax.swing.JTextField name;
     private javax.swing.JTextField pass;
     private javax.swing.JComboBox<String> quyen;

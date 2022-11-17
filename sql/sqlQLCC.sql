@@ -1,10 +1,9 @@
 CREATE DATABASE QLCC
 go
 
-USE [QLCC]
+USE QLCC
 GO
 
-/****** Object:  Table [dbo].[users]    Script Date: 11/11/2022 11:05:32 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -24,10 +23,9 @@ PRIMARY KEY CLUSTERED
 
 GO
 
-USE [QLCC]
+USE QLCC
 GO
 
-/****** Object:  Table [dbo].[listds]    Script Date: 11/11/2022 11:06:03 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -52,6 +50,7 @@ GO
 
 CREATE TABLE HoaDon
 (
+	[stt] [int] IDENTITY(1,1) NOT NULL,
 	maHD NVARCHAR(100) PRIMARY KEY,
 	hotenchuho NVARCHAR(100) NOT NULL,
 	canho NVARCHAR(100) NOT NULL,
