@@ -294,7 +294,7 @@ public class jfmp102 extends javax.swing.JFrame {
             try {
             Connection con = DriverManager.getConnection(url,username,password);
             
-             String query1 ="select trangthai from HoaDon where canho = 'P102'";
+             String query1 ="select trangthai from HoaDon where maphong = 'P102'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
                 while (rs.next()) {

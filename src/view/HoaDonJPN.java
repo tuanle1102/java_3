@@ -208,7 +208,6 @@ public class HoaDonJPN extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -245,12 +244,10 @@ public class HoaDonJPN extends javax.swing.JPanel {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,19 +271,24 @@ public class HoaDonJPN extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addComponent(jButton2)))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(rdDa)
-                    .addComponent(rdChua)
-                    .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(rdDa)
+                            .addComponent(rdChua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -304,7 +306,7 @@ public class HoaDonJPN extends javax.swing.JPanel {
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
-            String query = "INSERT INTO HoaDon(maHD, hotenchuho, canho, time, trangthai) VALUES(?, ?, ?, ?, ?)";
+            String query = "INSERT INTO HoaDon(maHD, hoten, maphong, time, trangthai) VALUES(?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, txtmaHD.getText());
             ps.setString(2, txtHoten.getText());
@@ -343,7 +345,7 @@ public class HoaDonJPN extends javax.swing.JPanel {
             HoaDon lids;
             while (rs.next()) {
 
-                lids = new HoaDon(rs.getInt("stt"),rs.getString("maHD"), rs.getString("hotenchuho"), rs.getString("canho"), rs.getDate("time"), rs.getString("trangthai"));
+                lids = new HoaDon(rs.getInt("id"),rs.getString("maHD"), rs.getString("hoten"), rs.getString("maphong"), rs.getDate("time"), rs.getString("trangthai"));
                 userList.add(lids);
 
             }
@@ -381,7 +383,7 @@ public class HoaDonJPN extends javax.swing.JPanel {
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_List.getSelectedRow();
             String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
-            String query = "Update HoaDon SET maHD = ? , hotenchuho = ? , canho = ? , time = ? , trangthai = ? where stt =" + value;
+            String query = "Update HoaDon SET maHD = ? , hoten = ? , maphong = ? , time = ? , trangthai = ? where stt =" + value;
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, txtmaHD.getText());
             ps.setString(2, txtHoten.getText());
@@ -417,7 +419,7 @@ public class HoaDonJPN extends javax.swing.JPanel {
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_List.getSelectedRow();
             String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
-            String query = "Delete From HoaDon where stt =" + value;
+            String query = "Delete From HoaDon where id =" + value;
             PreparedStatement ps = con.prepareStatement(query);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Delete Successfully");

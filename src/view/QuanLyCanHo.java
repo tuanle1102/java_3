@@ -4,8 +4,22 @@
  */
 package view;
 
+import UpdatebyMaPhong.P101;
+import UpdatebyMaPhong.P102;
+import UpdatebyMaPhong.P103;
+import UpdatebyMaPhong.P104;
+import UpdatebyMaPhong.P201;
+import UpdatebyMaPhong.P202;
+import UpdatebyMaPhong.P203;
+import UpdatebyMaPhong.P204;
 import quanlycanho.jfmp101;
 import quanlycanho.jfmp102;
+import quanlycanho.jfmp103;
+import quanlycanho.jfmp104;
+import quanlycanho.jfmp201;
+import quanlycanho.jfmp202;
+import quanlycanho.jfmp203;
+import quanlycanho.jfmp204;
 
 /**
  *
@@ -34,7 +48,7 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         jMenuItem4 = new javax.swing.JMenuItem();
         jpopp102 = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
         jpopp103 = new javax.swing.JPopupMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -86,6 +100,11 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         jpopp001.add(jMenuItem3);
 
         jMenuItem4.setText("Chỉnh sửa");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jpopp001.add(jMenuItem4);
 
         jMenuItem1.setText("Xem");
@@ -96,43 +115,108 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         });
         jpopp102.add(jMenuItem1);
 
-        jMenuItem2.setText("Chỉnh sửa");
-        jpopp102.add(jMenuItem2);
+        jMenuItem17.setText("Chỉnh sửa");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jpopp102.add(jMenuItem17);
 
         jMenuItem5.setText("Xem");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jpopp103.add(jMenuItem5);
 
         jMenuItem6.setText("Chỉnh sửa");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jpopp103.add(jMenuItem6);
 
         jMenuItem7.setText("Xem");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jpopp104.add(jMenuItem7);
 
         jMenuItem8.setText("Chỉnh sửa");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jpopp104.add(jMenuItem8);
 
         jMenuItem9.setText("Xem");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jpopp201.add(jMenuItem9);
 
         jMenuItem10.setText("Chỉnh sửa");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jpopp201.add(jMenuItem10);
 
         jMenuItem11.setText("Xem");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jpopp202.add(jMenuItem11);
 
         jMenuItem12.setText("Chỉnh sửa");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jpopp202.add(jMenuItem12);
 
         jMenuItem13.setText("Xem");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jpopp203.add(jMenuItem13);
 
         jMenuItem14.setText("Chỉnh sửa");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jpopp203.add(jMenuItem14);
 
         jMenuItem15.setText("Xem");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
         jpopp204.add(jMenuItem15);
 
         jMenuItem16.setText("Chỉnh sửa");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
         jpopp204.add(jMenuItem16);
 
         setBackground(new java.awt.Color(102, 0, 0));
@@ -453,6 +537,77 @@ public class QuanLyCanHo extends javax.swing.JPanel {
        p002.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        P101 p101 = new P101();
+        p101.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        P102 p102 = new P102();
+        p102.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       jfmp103 p103 = new jfmp103();
+       p103.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+     P103 p103 = new P103();
+        p103.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        jfmp104 p104 = new jfmp104();
+       p104.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        jfmp201 p201 = new jfmp201();
+       p201.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+         jfmp202 p202 = new jfmp202();
+       p202.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+          jfmp203 p203 = new jfmp203();
+       p203.setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+       jfmp204 p204 = new jfmp204();
+       p204.setVisible(true);
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+       P104 p104 = new P104();
+        p104.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        P201 p201 = new P201();
+        p201.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        P202 p202 = new P202();
+        p202.setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+       P203 p203 = new P203();
+        p203.setVisible(true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+           P204 p204 = new P204();
+        p204.setVisible(true);
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -475,7 +630,7 @@ public class QuanLyCanHo extends javax.swing.JPanel {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

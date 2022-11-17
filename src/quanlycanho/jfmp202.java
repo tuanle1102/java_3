@@ -45,7 +45,7 @@ public class jfmp202 extends javax.swing.JFrame {
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
-            String query1 = "SELECT * FROM listds;";
+            String query1 = "SELECT * FROM listds where maphong = 'P202';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
             ListDanhSach lids;
@@ -294,7 +294,7 @@ public class jfmp202 extends javax.swing.JFrame {
             try {
             Connection con = DriverManager.getConnection(url,username,password);
             
-             String query1 ="select trangthai from HoaDon where canho = 'P202'";
+             String query1 ="select trangthai from HoaDon where maphong = 'P202'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
                 while (rs.next()) {

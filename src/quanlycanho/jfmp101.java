@@ -45,12 +45,11 @@ public class jfmp101 extends javax.swing.JFrame {
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
-            String query1 = "SELECT * FROM listds;";
+            String query1 = "SELECT * FROM listds where maphong = 'P101' ;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
             ListDanhSach lids;
             while (rs.next()) {
-
                 lids = new ListDanhSach(rs.getInt("id"), rs.getString("hoten"), rs.getString("namsinh"), rs.getString("sdt"), rs.getString("gioitinh"), rs.getString("maphong"),rs.getBytes("hinh"));
                 userList.add(lids);
 
@@ -294,7 +293,7 @@ public class jfmp101 extends javax.swing.JFrame {
             try {
             Connection con = DriverManager.getConnection(url,username,password);
             
-             String query1 ="select trangthai from HoaDon where canho = 'p001'";
+             String query1 ="select trangthai from HoaDon where maphong = 'P101'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
                 while (rs.next()) {
