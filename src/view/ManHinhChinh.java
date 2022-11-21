@@ -206,7 +206,7 @@ public class ManHinhChinh extends javax.swing.JPanel {
             try {
             Connection con = DriverManager.getConnection(url,username,password);
             String rtn = null;
-             String query1 ="select count(*) as sophong from listds";
+             String query1 ="select count(*) as sophong from Phong";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
                 while (rs.next()) {
