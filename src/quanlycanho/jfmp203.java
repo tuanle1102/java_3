@@ -45,7 +45,7 @@ public class jfmp203 extends javax.swing.JFrame {
             String password = "12345";
             
             Connection con = DriverManager.getConnection(url,username,password);
-            String query1 = "SELECT * FROM listds where maphong = 'P203';";
+            String query1 = "SELECT * FROM listds where maphong = 'P202';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
             ListDanhSach lids;
@@ -151,7 +151,7 @@ public class jfmp203 extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("P203");
+        jLabel3.setText("P001");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -294,7 +294,7 @@ public class jfmp203 extends javax.swing.JFrame {
             try {
             Connection con = DriverManager.getConnection(url,username,password);
             
-             String query1 ="select trangthai from HoaDon where maphong = 'P203'";
+             String query1 ="select trangthai from HoaDon where maphong = 'P202'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query1);
                 while (rs.next()) {

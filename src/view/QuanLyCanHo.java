@@ -20,7 +20,11 @@ import quanlycanho.jfmp201;
 import quanlycanho.jfmp202;
 import quanlycanho.jfmp203;
 import quanlycanho.jfmp204;
-
+import PrintHD.countHDP101;
+import PrintHD.countHDP102;
+import PrintHD.countHDP103;
+import PrintHD.countHDP104;
+import PrintHD.countHDP201;
 /**
  *
  * @author 1102l
@@ -46,21 +50,27 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         jpopp001 = new javax.swing.JPopupMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jpopp102 = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
         jpopp103 = new javax.swing.JPopupMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
         jpopp104 = new javax.swing.JPopupMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jpopp201 = new javax.swing.JPopupMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
         jpopp202 = new javax.swing.JPopupMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jpopp203 = new javax.swing.JPopupMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
@@ -107,6 +117,14 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         });
         jpopp001.add(jMenuItem4);
 
+        jMenuItem2.setText("HoaDon");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jpopp001.add(jMenuItem2);
+
         jMenuItem1.setText("Xem");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +140,9 @@ public class QuanLyCanHo extends javax.swing.JPanel {
             }
         });
         jpopp102.add(jMenuItem17);
+
+        jMenuItem18.setText("Hóa đơn");
+        jpopp102.add(jMenuItem18);
 
         jMenuItem5.setText("Xem");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +160,14 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         });
         jpopp103.add(jMenuItem6);
 
+        jMenuItem19.setText("jMenuItem19");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jpopp103.add(jMenuItem19);
+
         jMenuItem7.setText("Xem");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +183,14 @@ public class QuanLyCanHo extends javax.swing.JPanel {
             }
         });
         jpopp104.add(jMenuItem8);
+
+        jMenuItem20.setText("Hóa đơn");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jpopp104.add(jMenuItem20);
 
         jMenuItem9.setText("Xem");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +208,14 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         });
         jpopp201.add(jMenuItem10);
 
+        jMenuItem21.setText("Hóa đơn");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
+        jpopp201.add(jMenuItem21);
+
         jMenuItem11.setText("Xem");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +231,14 @@ public class QuanLyCanHo extends javax.swing.JPanel {
             }
         });
         jpopp202.add(jMenuItem12);
+
+        jMenuItem22.setText("Hóa Đơn");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
+        jpopp202.add(jMenuItem22);
 
         jMenuItem13.setText("Xem");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
@@ -608,6 +661,31 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         p204.setVisible(true);
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        countHDP101 hd1 = new countHDP101();
+        hd1.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        countHDP102 hd2 = new countHDP102();
+        hd2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        countHDP103 hd3 = new countHDP103();
+        hd3.setVisible(true);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        countHDP104 hd4 = new countHDP104();
+        hd4.setVisible(true);
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        countHDP201 hd21 = new countHDP201();
+        hd21.setVisible(true);
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -631,6 +709,12 @@ public class QuanLyCanHo extends javax.swing.JPanel {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

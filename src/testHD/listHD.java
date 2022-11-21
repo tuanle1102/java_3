@@ -4,6 +4,8 @@
  */
 package testHD;
 
+import java.util.Date;
+
 /**
  *
  * @author 1102l
@@ -11,24 +13,58 @@ package testHD;
 public class listHD {
 
     private int id;
+    private String mahd;
+    private Date time;
+    private String trangthai;
     private int tienPhong;
     private int tienDien;
     private int tienNuoc;
+    private int tongtien;
 
-    public listHD(int id, int tienPhong, int tienDien, int tienNuoc) {
+    public listHD(int id, String mahd, Date time, String trangthai, int tienPhong, int tienDien, int tienNuoc, int tongtien) {
         this.id = id;
+        this.mahd = mahd;
+        this.time = time;
+        this.trangthai = trangthai;
         this.tienPhong = tienPhong;
         this.tienDien = tienDien;
         this.tienNuoc = tienNuoc;
-
+        this.tongtien = tongtien;
     }
 
+    public listHD() {
+    }
+    
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getMahd() {
+        return mahd;
+    }
+
+    public void setMahd(String mahd) {
+        this.mahd = mahd;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public String getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(String trangthai) {
+        this.trangthai = trangthai;
     }
 
     public int getTienPhong() {
@@ -55,4 +91,12 @@ public class listHD {
         this.tienNuoc = tienNuoc;
     }
 
+    public int getTongtien() {
+        return tongtien;
+    }
+
+    public void setTongtien(int tongtien) {
+        this.tongtien = tongtien;
+    }
+    
 }

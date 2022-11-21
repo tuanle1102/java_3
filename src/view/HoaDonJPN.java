@@ -72,6 +72,12 @@ public class HoaDonJPN extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setText("Họ tên");
 
+        txtmaHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmaHDActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Mã hóa đơn");
@@ -279,10 +285,11 @@ public class HoaDonJPN extends javax.swing.JPanel {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(rdDa)
-                            .addComponent(rdChua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rdChua, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(rdDa))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
@@ -466,6 +473,10 @@ public class HoaDonJPN extends javax.swing.JPanel {
         
         seach(query);
     }//GEN-LAST:event_jtfSearchKeyReleased
+
+    private void txtmaHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmaHDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmaHDActionPerformed
 
  
     

@@ -42,6 +42,7 @@ public class P101 extends javax.swing.JFrame {
         show_user();
         this.setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
