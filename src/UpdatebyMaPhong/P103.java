@@ -137,6 +137,11 @@ public class P103 extends javax.swing.JFrame {
 
         rdMale.setBackground(java.awt.Color.orange);
         rdMale.setText("Nam");
+        rdMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdMaleActionPerformed(evt);
+            }
+        });
 
         rdFemale.setBackground(java.awt.Color.orange);
         rdFemale.setText("Nữ");
@@ -539,9 +544,11 @@ public class P103 extends javax.swing.JFrame {
         txtNamsinh.setText(model.getValueAt(i, 2).toString());
         txtSdt.setText(model.getValueAt(i,3).toString());
         gender = model.getValueAt(i, 4).toString();
-        if (gender.equals("Female")) {
-            rdFemale.setSelected(true);
+        if (gender.equals("Nu")) {
+           rdFemale.setSelected(true);
+            rdMale.setSelected(false);
         } else {
+            rdFemale.setSelected(false);
             rdMale.setSelected(true);
         }
         txtMaPhong.setText(model.getValueAt(i, 5).toString());
@@ -572,6 +579,10 @@ public class P103 extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "Không có phong nào được thue");
         }
     }//GEN-LAST:event_lblthanhtoanMouseMoved
+
+    private void rdMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdMaleActionPerformed
 
     /**
      * @param args the command line arguments

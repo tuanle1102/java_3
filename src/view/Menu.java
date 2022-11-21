@@ -28,6 +28,7 @@ public class Menu extends javax.swing.JPanel {
     public Menu() {
         initComponents();
         show_user();
+        xulyText();
     }
     public ArrayList<User> userList(){
         ArrayList<User> userList = new ArrayList<>();
@@ -304,18 +305,24 @@ public class Menu extends javax.swing.JPanel {
     private void quyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quyenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_quyenActionPerformed
-
+   
+    private boolean xulyText(){
+            if(name.getText().isEmpty() || pass.getText().isEmpty()){
+                return false;
+            }
+            return true;
+    }
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
             + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "saa";
             String password = "12345";
-
             Connection con = DriverManager.getConnection(url,username,password);
             String query = "INSERT INTO users (name,pass,quyen)VALUES(?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
-
+            if(xulyText()){
             ps.setString(1, name.getText());
             ps.setString(2, pass.getText());
             String regis;
@@ -326,6 +333,10 @@ public class Menu extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel)jTable1_Display_User.getModel();
             model.setRowCount(0);
             show_user();
+            }
+            else{
+               JOptionPane.showMessageDialog(this, "Vui long nhap du thong tin");
+            }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_saveBtnActionPerformed
@@ -394,7 +405,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_jTable1_Display_UserMouseClicked
 
     private void jtfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSearchKeyReleased
-        String query =jtfSearch.getText().toLowerCase();
+        String query = jtfSearch.getText().toString();
         seach(query);
     }//GEN-LAST:event_jtfSearchKeyReleased
     
@@ -403,7 +414,6 @@ public class Menu extends javax.swing.JPanel {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
         dm =(DefaultTableModel) jTable1_Display_User.getModel();
         jTable1_Display_User.setRowSorter(tr);
-        
         tr.setRowFilter(RowFilter.regexFilter(query));
     }
 

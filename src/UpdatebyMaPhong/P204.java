@@ -539,9 +539,11 @@ public class P204 extends javax.swing.JFrame {
         txtNamsinh.setText(model.getValueAt(i, 2).toString());
         txtSdt.setText(model.getValueAt(i,3).toString());
         gender = model.getValueAt(i, 4).toString();
-        if (gender.equals("Female")) {
+        if (gender.equals("Nu")) {
             rdFemale.setSelected(true);
+            rdMale.setSelected(false);
         } else {
+            rdFemale.setSelected(false);
             rdMale.setSelected(true);
         }
         txtMaPhong.setText(model.getValueAt(i, 5).toString());

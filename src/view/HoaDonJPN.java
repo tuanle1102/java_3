@@ -359,7 +359,7 @@ public class HoaDonJPN extends javax.swing.JPanel {
         public void show_user() {
         ArrayList<HoaDon> list = userList();
         DefaultTableModel model = (DefaultTableModel) jTable1_List.getModel();
-        Object[] row = new Object[6];
+        Object[] row = new Object[8];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getStt();
             row[1] = list.get(i).getMaHD();
@@ -383,15 +383,16 @@ public class HoaDonJPN extends javax.swing.JPanel {
             Connection con = DriverManager.getConnection(url,username,password);
             int row = jTable1_List.getSelectedRow();
             String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
-            String query = "Update HoaDon SET maHD = ? , hoten = ? , maphong = ? , time = ? , trangthai = ? where stt =" + value;
+            String query = "Update HoaDon SET maHD = ? , hoten = ? , maphong = ? , time = ? , trangthai = ? where id =" + value;
             PreparedStatement ps = con.prepareStatement(query);
+            
             ps.setString(1, txtmaHD.getText());
             ps.setString(2, txtHoten.getText());
             ps.setString(3, txtMaPhong.getText());
             ps.setString(4, txtTime.getText());
             if (rdDa.isSelected()) {
                 gender = "Đã thanh toán";
-            } else {
+            } else{
                 gender = "Chưa thanh toán";
             }
             ps.setString(5, gender);    
@@ -443,8 +444,10 @@ public class HoaDonJPN extends javax.swing.JPanel {
         gender = model.getValueAt(i, 5).toString();
         if (gender.equals("Chưa thanh toán")) {
                 rdChua.setSelected(true);
+                rdDa.setSelected(false);
             } else {
-                rdDa.setSelected(true);
+            rdChua.setSelected(false);
+            rdDa.setSelected(true);
             }        
     }//GEN-LAST:event_jTable1_ListMouseClicked
     private void seach(String query)

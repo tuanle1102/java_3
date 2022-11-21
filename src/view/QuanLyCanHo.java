@@ -233,7 +233,7 @@ public class QuanLyCanHo extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setLabelFor(jpopp001);
-        jLabel1.setText("P001");
+        jLabel1.setText("P101");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel1.setComponentPopupMenu(jpopp001);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {

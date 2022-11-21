@@ -18,14 +18,20 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-/**
- *
- * @author 1102l
- */
+
+
+
 public class listDS extends javax.swing.JPanel {
     String gender;
     String filename = null;
@@ -37,6 +43,7 @@ public class listDS extends javax.swing.JPanel {
     public listDS() {
         initComponents();
         show_user();
+        xulyText();
     }
 
     /**
@@ -196,6 +203,11 @@ public class listDS extends javax.swing.JPanel {
         });
 
         jtfSearch.setToolTipText("Tìm kiếm");
+        jtfSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfSearchActionPerformed(evt);
+            }
+        });
         jtfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtfSearchKeyReleased(evt);
@@ -243,7 +255,15 @@ public class listDS extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,15 +279,7 @@ public class listDS extends javax.swing.JPanel {
                                                 .addComponent(rdFemale))
                                             .addComponent(txtHoten, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtNamsinh, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jtfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtSdt, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(61, 61, 61)
@@ -288,7 +300,7 @@ public class listDS extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtHoten, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
@@ -344,15 +356,20 @@ public class listDS extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+     private boolean xulyText(){
+            if(txtHoten.getText().isEmpty() || txtNamsinh.getText().isEmpty() || txtMaPhong.getText().isEmpty() || txtSdt.getText().isEmpty()){
+                return false;
+            }
+            return true;
+    }
     private void rdFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdFemaleActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_rdFemaleActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
 
         try {
-
-                String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QLCC;"
                     + "encrypt=true;trustServerCertificate=true;sslProtocol=TLSv1.2";
             String username = "saa";
             String password = "12345";
@@ -382,7 +399,7 @@ public class listDS extends javax.swing.JPanel {
 
         }
 
-         public ArrayList<ListDanhSach> userList() {
+        public ArrayList<ListDanhSach> userList() {
         ArrayList<ListDanhSach> userList = new ArrayList<>();
 
         try {
@@ -437,7 +454,6 @@ public class listDS extends javax.swing.JPanel {
             String value = (jTable1_List.getModel().getValueAt(row, 0).toString());
             String query = "Update listds SET hoten = ? , namsinh = ? , sdt = ? , gioitinh = ? , maphong = ? ,hinh = ? where id =" + value;
             PreparedStatement ps = con.prepareStatement(query);
-
            ps.setString(1, txtHoten.getText());
             ps.setString(2, txtNamsinh.getText());
             ps.setString(3, txtSdt.getText());
@@ -529,16 +545,49 @@ public class listDS extends javax.swing.JPanel {
     }//GEN-LAST:event_btnImageActionPerformed
 
     private void jtfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSearchKeyReleased
-        String query =jtfSearch.getText().toLowerCase();
-        
+        String query = jtfSearch.getText().toString();
         seach(query);
+    
     }//GEN-LAST:event_jtfSearchKeyReleased
-    private void seach(String query)
+    
+    private void jtfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfSearchActionPerformed
+        
+    }//GEN-LAST:event_jtfSearchActionPerformed
+
+    public listDS(String gender, DefaultTableModel dm, JButton btnImage, JButton jButton2, JButton jButton3, JLabel jLabel1, JLabel jLabel10, JLabel jLabel2, JLabel jLabel3, JLabel jLabel4, JLabel jLabel5, JLabel jLabel8, JLabel jLabel9, JPanel jPanel4, JPanel jPanel5, JScrollPane jScrollPane1, JTextField jSearch, JTable jTable1_List, JTextField jtfSearch, JLabel lbl_image, JRadioButton rdFemale, JRadioButton rdMale, JButton saveBtn, JTextField txtHoten, JTextField txtMaPhong, JTextField txtNamsinh, JTextField txtSdt) {
+        this.gender = gender;
+        this.dm = dm;
+        this.btnImage = btnImage;
+        this.jButton2 = jButton2;
+        this.jButton3 = jButton3;
+        this.jLabel1 = jLabel1;
+        this.jLabel10 = jLabel10;
+        this.jLabel2 = jLabel2;
+        this.jLabel3 = jLabel3;
+        this.jLabel4 = jLabel4;
+        this.jLabel5 = jLabel5;
+        this.jLabel8 = jLabel8;
+        this.jLabel9 = jLabel9;
+        this.jPanel4 = jPanel4;
+        this.jPanel5 = jPanel5;
+        this.jScrollPane1 = jScrollPane1;
+        this.jTable1_List = jTable1_List;
+        this.jtfSearch = jtfSearch;
+        this.lbl_image = lbl_image;
+        this.rdFemale = rdFemale;
+        this.rdMale = rdMale;
+        this.saveBtn = saveBtn;
+        this.txtHoten = txtHoten;
+        this.txtMaPhong = txtMaPhong;
+        this.txtNamsinh = txtNamsinh;
+        this.txtSdt = txtSdt;
+      
+    }
+        private void seach(String query)
     {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dm);
         dm =(DefaultTableModel) jTable1_List.getModel();
         jTable1_List.setRowSorter(tr);
-        
         tr.setRowFilter(RowFilter.regexFilter(query));
     }
  
